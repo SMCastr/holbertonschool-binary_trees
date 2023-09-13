@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include "binary_trees.h"
 
 /**
@@ -38,4 +37,17 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 	perfect_nodes = (1 << height) - 1;
 
 	return (nodes == perfect_nodes);
+}
+
+/**
+ * binary_tree_size - function to measure the tree
+ * @tree: pointer to root of the tree
+ * Return: size of the tree
+ */
+size_t binary_tree_size(const binary_tree_t *tree)
+{
+	if (tree == NULL)
+		return (0);
+	else
+		return (binary_tree_size(tree->left) + 1 + binary_tree_size(tree->right));
 }
